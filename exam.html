@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attendance Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f8f9fa;
+    }
+    h2 {
+      color: #333;
+    }
+    .student-list {
+      list-style-type: none;
+      padding: 0;
+    }
+    .student-list li {
+      margin-bottom: 8px;
+    }
+    .count {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #006400;
+    }
+  </style>
+</head>
+<body>
+  <h2>Attendance Tracker</h2>
+
+  <ul class="student-list">
+    <li><label><input type="checkbox" class="present"> Alice</label></li>
+    <li><label><input type="checkbox" class="present"> Bob</label></li>
+    <li><label><input type="checkbox" class="present"> Charlie</label></li>
+    <li><label><input type="checkbox" class="present"> David</label></li>
+  </ul>
+
+  <p class="count">Total Present: <span id="count">0</span> / 4</p>
+
+  <script>
+    const checkboxes = document.querySelectorAll('.present');
+    const countDisplay = document.getElementById('count');
+
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const checkedCount = document.querySelectorAll('.present:checked').length;
+        countDisplay.textContent = checkedCount;
+      });
+    });
+  </script>
+</body>
+</html>
